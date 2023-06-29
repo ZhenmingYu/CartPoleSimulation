@@ -11,6 +11,8 @@ from CartPole.state_utilities import (ANGLE_COS_IDX, ANGLE_IDX, ANGLE_SIN_IDX,
 from others.globals_and_utils import create_rng, load_config
 from others.p_globals import TrackHalfLength
 
+from multiprocessing import Pool
+
 # Uncomment if you want to get interactive plots for MPPI in Pycharm on MacOS
 # On other OS you have to chose a different interactive backend.
 # from matplotlib import use
@@ -192,7 +194,21 @@ def generate_random_initial_state(init_state_stub, init_limits, rng):
 
     return initial_state_post
 
-def run_data_generator(run_for_ML_Pipeline=False, record_path=None):
+def run_data_generator(run_for_ML_Pipeline=False, record_path=None, CPU_Threads=8):
+    config = load_config("config_data_gen.yml")
+    number_of_experiments = config["number_of_experiments"]
+
+    pool = Pool(CPU_Threads)
+    task_ids = range(number_of_experiments)
+    seeds = [np.random.randint(0, 2**32) for _ in task_ids]
+    run_for_ML_Pipelines = [run_for_ML_Pipeline for _ in task_ids]
+    record_paths = [record_path for _ in task_ids]
+    
+    pool.starmap(run_data_generator_single, zip(task_ids, seeds, run_for_ML_Pipelines, record_paths))
+
+def run_data_generator_single(task_id, seed, run_for_ML_Pipeline=False, record_path=None):
+    np.random.seed(seed)
+
     config = load_config("config_data_gen.yml")
 
     if record_path is None:
@@ -218,70 +234,68 @@ def run_data_generator(run_for_ML_Pipeline=False, record_path=None):
 
     ############ END OF PARAMETERS SECTION ############
 
-    for i in range(number_of_experiments):
+    if run_for_ML_Pipeline:
+        if task_id < int(frac_train*number_of_experiments):
+            csv = record_path + "/Train"
+        elif task_id < int((frac_train+frac_val)*number_of_experiments):
+            csv = record_path + "/Validate"
+        else:
+            csv = record_path + "/Test"
 
-        if run_for_ML_Pipeline:
-            if i < int(frac_train*number_of_experiments):
-                csv = record_path + "/Train"
-            elif i < int((frac_train+frac_val)*number_of_experiments):
-                csv = record_path + "/Validate"
-            else:
-                csv = record_path + "/Test"
+        try:
+            os.makedirs(csv)
+        except:
+            pass
 
-            try:
-                os.makedirs(csv)
-            except:
-                pass
+        csv += "/Experiment"
 
-            csv += "/Experiment"
+    
 
-        
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # You may also specify some of the variables from above here, to make them change at each iteration.#
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
-        # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
-        # You may also specify some of the variables from above here, to make them change at each iteration.#
-        # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    print('{}/{}'.format(task_id+1, number_of_experiments))
+    sleep(0.1)
+    CartPoleInstance = CartPole()
 
-        print('{}/{}'.format(i+1, number_of_experiments))
-        sleep(0.1)
-        CartPoleInstance = CartPole()
+    CartPoleInstance = RES.set(CartPoleInstance)
+    
+    gen_start = timeit.default_timer()
 
-        CartPoleInstance = RES.set(CartPoleInstance)
-        
-        gen_start = timeit.default_timer()
+    ############ Profiling ############
+    # Uncommenting this block will save a file profiling_stats.txt in top-level directory
+    # Visualize bottlenecks and code runtime using
+    # snakeviz profiling_stats.txt
+    # with cProfile.Profile() as pr:
+    #     CartPoleInstance.run_cartpole_random_experiment(
+    #         csv=csv,
+    #         save_mode=save_mode
+    #     )
+    # with open('profiling_stats.txt', 'w', newline='') as stream:
+    #     stats = Stats(pr, stream=stream)
+    #     stats.strip_dirs()
+    #     stats.sort_stats('time')
+    #     stats.dump_stats('.prof_stats')
+    #     stats.print_stats()
+    ###################################
 
-        ############ Profiling ############
-        # Uncommenting this block will save a file profiling_stats.txt in top-level directory
-        # Visualize bottlenecks and code runtime using
-        # snakeviz profiling_stats.txt
-        # with cProfile.Profile() as pr:
-        #     CartPoleInstance.run_cartpole_random_experiment(
-        #         csv=csv,
-        #         save_mode=save_mode
-        #     )
-        # with open('profiling_stats.txt', 'w', newline='') as stream:
-        #     stats = Stats(pr, stream=stream)
-        #     stats.strip_dirs()
-        #     stats.sort_stats('time')
-        #     stats.dump_stats('.prof_stats')
-        #     stats.print_stats()
-        ###################################
+    CartPoleInstance.run_cartpole_random_experiment(
+        csv=csv,
+        save_mode=save_mode,
+        show_summary_plots=show_summary_plots
+    )
 
-        CartPoleInstance.run_cartpole_random_experiment(
-            csv=csv,
-            save_mode=save_mode,
-            show_summary_plots=show_summary_plots
-        )
+    gen_end = timeit.default_timer()
+    gen_dt = (gen_end - gen_start)
+    print('time to generate data: {} ms'.format(gen_dt * 1000.0))
+    print('Speed-up: {}'.format(float(config['length_of_experiment'])/gen_dt))
 
-        gen_end = timeit.default_timer()
-        gen_dt = (gen_end - gen_start)
-        print('time to generate data: {} ms'.format(gen_dt * 1000.0))
-        print('Speed-up: {}'.format(float(config['length_of_experiment'])/gen_dt))
-
-        if show_controller_report:
-            try:
-                CartPoleInstance.controller.controller_report()
-            except:
-                pass
+    if show_controller_report:
+        try:
+            CartPoleInstance.controller.controller_report()
+        except:
+            pass
 
 
 if __name__ == '__main__':
