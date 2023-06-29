@@ -526,6 +526,8 @@ class CartPole(EnvironmentBatched):
                     if L + self.L_step > self.L_range[1] or L + self.L_step < self.L_range[0]:
                         self.L_step *= -1.0
                     L[...] = L + self.L_step
+                elif self.L_change_mode == 'random_walk':
+                    L[...] = np.clip(L * (1+np.random.uniform(-0.1,0.1)),*self.L_range)
 
             else:
                 L[...] = L * self.L_discount_factor
