@@ -22,7 +22,7 @@ initial_target_equilibrium: 'random'  # possible 'up', 'down', 'random' = 50/50
 change_target_equilibrium_every_x_second: 16
 L:  # Pole half-length
   L_initial: default
-  change_L_every_x_second: inf
+  change_L_every_x_second: 0.1
   L_discount_factor: 1.0 #0.9999; Change of L at EACH SIMULATOR TIMESTEP
   L_range: [0.01, 0.6]  # Range from which to uniformly sample L
   informed_controller: true  # If false controller assumes always L_initial
