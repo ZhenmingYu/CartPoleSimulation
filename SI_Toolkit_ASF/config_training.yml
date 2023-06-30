@@ -3,17 +3,23 @@ modeling:
   NET_NAME: 'GRU-32H1-32H2'
 paths:
   # PATH HAS TO END WITH A SOLIDUS ("/") CHARACTER
-  path_to_experiment: 'Pretrained-RNN-1/'
+  path_to_experiment: 'DG-27s-and-1s500ms-noisy-u/'
   PATH_TO_EXPERIMENT_FOLDERS: './SI_Toolkit_ASF/Experiments/'  # Path where the experiments data is stored
 
 training_default:
-  # For training closed loop dynamics model:
-  control_inputs: ['Q']
+  # For training pole length predictor:
+  control_inputs: [Q]
   state_inputs: ['angle_sin', 'angle_cos', 'angleD', 'position', 'positionD']
   setpoint_inputs: []  # Can be only 'target_position' or empty for CartPole
-  outputs: ['angle_sin', 'angle_cos', 'angleD', 'position', 'positionD']
-  #  outputs: ['D_angle_sin', 'D_angle_cos', 'D_angleD', 'D_position', 'D_positionD'] # Don't forget to change SHIFT_LABELS to 0
+  outputs: ['L']
   translation_invariant_variables: []
+  # # For training closed loop dynamics model:
+  # control_inputs: ['Q']
+  # state_inputs: ['angle_sin', 'angle_cos', 'angleD', 'position', 'positionD']
+  # setpoint_inputs: []  # Can be only 'target_position' or empty for CartPole
+  # outputs: ['angle_sin', 'angle_cos', 'angleD', 'position', 'positionD']
+  # #  outputs: ['D_angle_sin', 'D_angle_cos', 'D_angleD', 'D_position', 'D_positionD'] # Don't forget to change SHIFT_LABELS to 0
+  # translation_invariant_variables: []
   # For training open loop dynamics model:
   # inputs = ['position', 'positionD', 'angle_sin', 'angle_cos', 'angleD']
   # outputs = inputs_list

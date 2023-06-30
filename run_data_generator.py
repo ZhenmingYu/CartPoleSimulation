@@ -285,4 +285,4 @@ def run_data_generator(run_for_ML_Pipeline=False, record_path=None):
 
 
 if __name__ == '__main__':
-    run_data_generator()
+    run_data_generator(run_for_ML_Pipeline=True)

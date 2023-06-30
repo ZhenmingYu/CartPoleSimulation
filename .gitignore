@@ -17,3 +17,5 @@ eggs/
 /Modeling/SI_Toolkit/TF/NNI/NNI_Results
 
 /SI_Toolkit_ASF/Experiments/*
+
+nohup.out
