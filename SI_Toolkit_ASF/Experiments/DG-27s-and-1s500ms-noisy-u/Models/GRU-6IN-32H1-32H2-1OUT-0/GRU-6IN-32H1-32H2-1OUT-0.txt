@@ -1,0 +1,50 @@
+CREATED:
+2023-07-01 at time 23:50:35
+
+WITH GIT REVISION:
+cdccda803763ad5d0c3394e6138192c7fbfc46ff
+
+LIBRARY:
+TF
+
+NET NAME:
+GRU-32H1-32H2
+
+NET FULL NAME:
+GRU-6IN-32H1-32H2-1OUT-0
+
+INPUTS:
+Q, angleD, angle_cos, angle_sin, position, positionD
+
+OUTPUTS:
+L
+
+TYPE:
+GRU
+
+NORMALIZATION:
+./SI_Toolkit_ASF/Experiments/DG-27s-and-1s500ms-noisy-u/Models/GRU-6IN-32H1-32H2-1OUT-0/NI_2023-01-11_02-00-48.csv
+
+PARENT NET:
+Network trained from scratch
+
+WASH OUT LENGTH:
+10
+
+CONSTRUCT NETWORK:
+with cells
+
+TRAINING_FILES:
+./SI_Toolkit_ASF/Experiments/DG-27s-and-1s500ms-noisy-u//Recordings/Train/
+
+VALIDATION_FILES:
+./SI_Toolkit_ASF/Experiments/DG-27s-and-1s500ms-noisy-u//Recordings/Validate/
+
+TEST_FILES:
+./SI_Toolkit_ASF/Experiments/DG-27s-and-1s500ms-noisy-u//Recordings/Test/
+
+TIMESTEP MEAN:
+nan
+
+TIMESTEP STD:
+nan

@@ -2,10 +2,10 @@
 .DS_Store
 *__pycache__
 *.pyc
-*.csv
-*.png
-*.txt
-*.ckpt.*
+# *.csv
+# *.png
+# *.txt
+# *.ckpt.*
 *.pt
 *.env
 *.vscode
