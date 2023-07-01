@@ -16,7 +16,6 @@ PyYAML
 scikit-learn
 scipy
 setuptools
-sklearn
 sympy
 tqdm
 typing-extensions
