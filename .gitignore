@@ -20,4 +20,4 @@ eggs/
 
 nohup.out
 
-Experiment_Recordings/
+/Experiment_Recordings/*
