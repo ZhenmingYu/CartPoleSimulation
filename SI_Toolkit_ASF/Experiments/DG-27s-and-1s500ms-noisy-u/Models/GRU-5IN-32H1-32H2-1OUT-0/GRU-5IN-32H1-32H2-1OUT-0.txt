@@ -44,7 +44,7 @@ TEST_FILES:
 ./SI_Toolkit_ASF/Experiments/DG-27s-and-1s500ms-noisy-u//Recordings/Test/
 
 TIMESTEP MEAN:
-nan
+0.0
 
 TIMESTEP STD:
-nan
+0.0
