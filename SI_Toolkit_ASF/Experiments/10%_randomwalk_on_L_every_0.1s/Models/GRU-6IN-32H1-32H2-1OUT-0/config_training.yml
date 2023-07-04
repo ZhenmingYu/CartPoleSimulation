@@ -3,7 +3,7 @@ modeling:
   NET_NAME: 'GRU-32H1-32H2'
 paths:
   # PATH HAS TO END WITH A SOLIDUS ("/") CHARACTER
-  path_to_experiment: '10%_randomwalk_on_L_every_0.002s/'
+  path_to_experiment: '10%_randomwalk_on_L_every_0.1s/'
   PATH_TO_EXPERIMENT_FOLDERS: './SI_Toolkit_ASF/Experiments/'  # Path where the experiments data is stored
 
 training_default:
