@@ -11,7 +11,7 @@ predictors_specifications_testing: ['S:./SI_Toolkit_ASF/Experiments/10%_randomwa
 
 test_file: 'Experiment.csv'
 
-path_to_testfile: './SI_Toolkit_ASF/Experiments/10%_randomwalk_on_L_every_0.002s/Recordings/Test'
+path_to_testfile: './SI_Toolkit_ASF/Experiments/10%_randomwalk_on_L_every_0.1s/Recordings/Train'
 
 test_len: 'max'
 test_max_horizon: 50  # Indicates prediction horizon for testing
