@@ -1,0 +1,50 @@
+CREATED:
+2023-07-08 at time 15:39:36
+
+WITH GIT REVISION:
+645508f372eb7ad0945bbe2b9d476d14131136f7
+
+LIBRARY:
+TF
+
+NET NAME:
+GRU-32H1-32H2
+
+NET FULL NAME:
+GRU-9IN-32H1-32H2-1OUT-0
+
+INPUTS:
+Q_applied, angle, angleD, angleDD, angle_cos, angle_sin, position, positionD, positionDD
+
+OUTPUTS:
+L
+
+TYPE:
+GRU
+
+NORMALIZATION:
+./SI_Toolkit_ASF/Experiments/10%_randomwalk_on_L_every_0.002s/Models/GRU-9IN-32H1-32H2-1OUT-0/NI_2023-07-03_14-38-46.csv
+
+PARENT NET:
+Network trained from scratch
+
+WASH OUT LENGTH:
+10
+
+CONSTRUCT NETWORK:
+with cells
+
+TRAINING_FILES:
+./SI_Toolkit_ASF/Experiments/10%_randomwalk_on_L_every_0.002s//Recordings/Train/
+
+VALIDATION_FILES:
+./SI_Toolkit_ASF/Experiments/10%_randomwalk_on_L_every_0.002s//Recordings/Validate/
+
+TEST_FILES:
+./SI_Toolkit_ASF/Experiments/10%_randomwalk_on_L_every_0.002s//Recordings/Test/
+
+TIMESTEP MEAN:
+0.01999998465180397
+
+TIMESTEP STD:
+5.092535866424441e-05

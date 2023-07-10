@@ -528,6 +528,10 @@ class CartPole(EnvironmentBatched):
                     L[...] = L + self.L_step
                 elif self.L_change_mode == 'random_walk':
                     L[...] = np.clip(L * (1+np.random.uniform(-0.1,0.1)),*self.L_range)
+                elif self.L_change_mode == 'random_walk_new':
+                    L_mid = (self.L_range[0] + self.L_range[1])/2
+                    L_size = abs(self.L_range[1]-self.L_range[0])/2
+                    L[...] = np.clip(L * (1+np.random.uniform(-0.1-np.clip(((L-L_mid)/L_size)*0.1, -0.1, 0.1),0.1-np.clip(((L-L_mid)/L_size)*0.1, -0.1, 0.1))),*self.L_range)
 
             else:
                 L[...] = L * self.L_discount_factor

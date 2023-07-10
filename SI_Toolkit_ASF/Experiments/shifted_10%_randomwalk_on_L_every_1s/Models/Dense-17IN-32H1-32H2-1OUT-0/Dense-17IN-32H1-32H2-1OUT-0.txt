@@ -1,0 +1,50 @@
+CREATED:
+2023-07-08 at time 18:38:00
+
+WITH GIT REVISION:
+645508f372eb7ad0945bbe2b9d476d14131136f7
+
+LIBRARY:
+TF
+
+NET NAME:
+Dense-32H1-32H2
+
+NET FULL NAME:
+Dense-17IN-32H1-32H2-1OUT-0
+
+INPUTS:
+Q_applied_-1, angle, angleD, angleDD, angleDD_-1, angleD_-1, angle_-1, angle_cos, angle_cos_-1, angle_sin, angle_sin_-1, position, positionD, positionDD, positionDD_-1, positionD_-1, position_-1
+
+OUTPUTS:
+L
+
+TYPE:
+Dense
+
+NORMALIZATION:
+./SI_Toolkit_ASF/Experiments/shifted_10%_randomwalk_on_L_every_1s/Models/Dense-17IN-32H1-32H2-1OUT-0/NI_2023-07-08_18-25-45.csv
+
+PARENT NET:
+Network trained from scratch
+
+WASH OUT LENGTH:
+10
+
+CONSTRUCT NETWORK:
+with cells
+
+TRAINING_FILES:
+./SI_Toolkit_ASF/Experiments/shifted_10%_randomwalk_on_L_every_1s//Recordings/Train/
+
+VALIDATION_FILES:
+./SI_Toolkit_ASF/Experiments/shifted_10%_randomwalk_on_L_every_1s//Recordings/Validate/
+
+TEST_FILES:
+./SI_Toolkit_ASF/Experiments/shifted_10%_randomwalk_on_L_every_1s//Recordings/Test/
+
+TIMESTEP MEAN:
+nan
+
+TIMESTEP STD:
+nan
