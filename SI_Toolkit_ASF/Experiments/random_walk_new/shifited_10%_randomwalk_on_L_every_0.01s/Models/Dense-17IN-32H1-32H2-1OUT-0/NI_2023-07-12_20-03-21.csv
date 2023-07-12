@@ -1,0 +1,27 @@
+# This is normalization information calculated 2023-07-12 at time 20-03-21
+# Done with git-revision: 95eceec690b9a11b8ee79746cf864254214e3536
+# Data files used to calculate normalization information:
+#     ./SI_Toolkit_ASF/Experiments/random_walk_new/shifited_10%_randomwalk_on_L_every_0.01s/Recordings/Train/Experiment-1.csv
+#     ./SI_Toolkit_ASF/Experiments/random_walk_new/shifited_10%_randomwalk_on_L_every_0.01s/Recordings/Train/Experiment-2.csv
+#     ./SI_Toolkit_ASF/Experiments/random_walk_new/shifited_10%_randomwalk_on_L_every_0.01s/Recordings/Train/Experiment-3.csv
+#     ./SI_Toolkit_ASF/Experiments/random_walk_new/shifited_10%_randomwalk_on_L_every_0.01s/Recordings/Train/Experiment-4.csv
+#     ./SI_Toolkit_ASF/Experiments/random_walk_new/shifited_10%_randomwalk_on_L_every_0.01s/Recordings/Train/Experiment-5.csv
+#     ./SI_Toolkit_ASF/Experiments/random_walk_new/shifited_10%_randomwalk_on_L_every_0.01s/Recordings/Train/Experiment-6.csv
+#     ./SI_Toolkit_ASF/Experiments/random_walk_new/shifited_10%_randomwalk_on_L_every_0.01s/Recordings/Train/Experiment-7.csv
+#     ./SI_Toolkit_ASF/Experiments/random_walk_new/shifited_10%_randomwalk_on_L_every_0.01s/Recordings/Train/Experiment.csv
+#
+# Original (calculated from data) Normalization Information:
+#,         ,      ,         ,L,         ,Q_applied,         ,Q_applied_-1,         ,Q_calculated,         ,Q_update_time,         ,angle,         ,angleD,         ,angleDD,         ,angleDD_-1,         ,angleD_-1,         ,angle_-1,         ,angle_cos,         ,angle_cos_-1,         ,angle_sin,         ,angle_sin_-1,         ,position,         ,positionD,         ,positionDD,         ,positionDD_-1,         ,positionD_-1,         ,position_-1,         ,target_equilibrium,         ,target_position,         ,u,         
+#,           ,mean,           ,0.30004,           ,-1e-05,           ,-1e-05,           ,-1e-05,           ,0.09139,           ,0.00176,           ,0.00183,           ,-5e-05,           ,1e-05,           ,0.00183,           ,0.00177,           ,-0.9938,           ,-0.9938,           ,1e-05,           ,1e-05,           ,0.00072,           ,-0.0,           ,1e-05,           ,1e-05,           ,-0.0,           ,0.00072,           ,0.00222,           ,-0.00159,           ,-4e-05,           
+#,           ,std,           ,0.03942,           ,0.04642,           ,0.04642,           ,0.04642,           ,0.15345,           ,3.12274,           ,0.22664,           ,0.9704,           ,0.97287,           ,0.22664,           ,3.12273,           ,0.10605,           ,0.10605,           ,0.03347,           ,0.03352,           ,0.05034,           ,0.02419,           ,0.18703,           ,0.18704,           ,0.02419,           ,0.05034,           ,1.0,           ,0.08823,           ,0.12163,           
+#,           ,max,           ,0.49863,           ,1.0,           ,1.0,           ,1.0,           ,102.40981,           ,3.14159,           ,11.7181,           ,40.6873,           ,40.6873,           ,11.7181,           ,3.14159,           ,1.0,           ,1.0,           ,1.0,           ,1.0,           ,0.17633,           ,0.83458,           ,15.42218,           ,15.42218,           ,0.83458,           ,0.17633,           ,1.0,           ,0.1584,           ,2.62,           
+#,           ,min,           ,0.15865,           ,-1.0,           ,-1.0,           ,-1.0,           ,0.05415,           ,-3.14159,           ,-10.99026,           ,-43.87544,           ,-43.87544,           ,-10.99026,           ,-3.14159,           ,-1.0,           ,-1.0,           ,-1.0,           ,-1.0,           ,-0.17637,           ,-0.84499,           ,-12.31125,           ,-12.31125,           ,-0.84499,           ,-0.17637,           ,-1.0,           ,-0.1584,           ,-2.62,           
+#
+# Does user modified normalization info calculated from data?: Yes
+#
+# Normalization Information:
+,D_angle,D_angleD,D_angle_cos,D_angle_sin,D_position,D_positionD,L,Q,Q_applied,Q_applied_-1,Q_calculated,Q_update_time,angle,angleD,angleDD,angleDD_-1,angleD_-1,angle_-1,angle_cos,angle_cos_-1,angle_sin,angle_sin_-1,position,positionD,positionDD,positionDD_-1,positionD_-1,position_-1,target_equilibrium,target_position,u
+mean,0.0,0.0,0.0,0.0,0.0,0.0,0.30004,0.0,-1e-05,-1e-05,-1e-05,0.09139,0.0,0.0,0.0,1e-05,0.00183,0.00177,0.0,-0.9938,0.0,1e-05,0.0,0.0,0.0,1e-05,-0.0,0.00072,0.00222,0.0,0.0
+std,,,,,,,0.03942,,0.04642,0.04642,0.04642,0.15345,3.12274,0.22664,0.9704,0.97287,0.22664,3.12273,0.10605,0.10605,0.03347,0.03352,0.05034,0.02419,0.18703,0.18704,0.02419,0.05034,1.0,0.08823,0.12163
+max,,,,,,,0.49863,1.0,1.0,1.0,1.0,102.40981,3.14159,11.7181,43.87544,40.6873,11.7181,3.14159,1.0,1.0,1.0,1.0,0.198,0.84499,15.42218,15.42218,0.83458,0.17633,1.0,0.198,2.62
+min,,,,,,,0.15865,-1.0,-1.0,-1.0,-1.0,0.05415,-3.14159,-11.7181,-43.87544,-43.87544,-10.99026,-3.14159,-1.0,-1.0,-1.0,-1.0,-0.198,-0.84499,-15.42218,-12.31125,-0.84499,-0.17637,-1.0,-0.198,-2.62
