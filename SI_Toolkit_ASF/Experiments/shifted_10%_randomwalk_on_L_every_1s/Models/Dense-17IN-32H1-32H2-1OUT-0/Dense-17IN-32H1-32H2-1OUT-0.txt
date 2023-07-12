@@ -44,7 +44,7 @@ TEST_FILES:
 ./SI_Toolkit_ASF/Experiments/shifted_10%_randomwalk_on_L_every_1s//Recordings/Test/
 
 TIMESTEP MEAN:
-nan
+0.0
 
 TIMESTEP STD:
-nan
+0.0
