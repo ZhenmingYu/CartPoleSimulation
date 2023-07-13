@@ -4,7 +4,7 @@ modeling:
 paths:
   # PATH HAS TO END WITH A SOLIDUS ("/") CHARACTER
   path_to_experiment: 'shifted_10%_randomwalk_on_L_every_0.002s/'
-  PATH_TO_EXPERIMENT_FOLDERS: './SI_Toolkit_ASF/Experiments/random_walk_new/'  # Path where the experiments data is stored
+  PATH_TO_EXPERIMENT_FOLDERS: './SI_Toolkit_ASF/Experiments/'  # Path where the experiments data is stored
 
 training_default:
   # For training pole length predictor:
